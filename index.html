@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hatem Ben Salha - Mechatronics Engineer Portfolio</title>
+    <title>Hatem Ben Salha - Mechatronics Engineer</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -20,112 +20,65 @@
             --card: #1a1a24;
             --border: #2a2a3a;
             --surface: #16161d;
-            --photo-placeholder: #2a2a3a;
         }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         @media (prefers-reduced-motion: reduce) {
             html { scroll-behavior: auto; }
-            *, *::before, *::after {
-                animation-duration: 0s !important;
-                transition-duration: 0s !important;
-            }
+            *, *::before, *::after { animation-duration: 0s !important; transition-duration: 0s !important; }
         }
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: var(--bg);
-            color: var(--fg);
-            line-height: 1.6;
-        }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); color: var(--fg); line-height: 1.6; }
 
-        /* Reduced motion overlay */
-        .reduced-motion-overlay {
-            position: fixed;
-            top: 0; left: 0; right: 0; bottom: 0;
-            background: var(--bg);
-            z-index: 1000;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--fg);
-            font-size: 1.2rem;
-        }
-
-        /* ===== NAVIGATION ===== */
+        /* ---- NAVIGATION WITH LOGO ---- */
         nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            padding: 1rem 2rem;
-            background: rgba(10, 10, 15, 0.8);
-            backdrop-filter: blur(20px);
-            z-index: 100;
-            border-bottom: 1px solid var(--border);
+            position: fixed; top: 0; left: 0; right: 0;
+            padding: 1rem 2rem; background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(20px); z-index: 100; border-bottom: 1px solid var(--border);
         }
 
-        .nav-container {
-            max-width: 1200px; margin: 0 auto;
-            display: flex; justify-content: space-between; align-items: center;
-            gap: 1rem;
-        }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; gap: 1rem; }
 
+        /* LOGO STYLING */
         .logo {
             font-size: 1.5rem; font-weight: 700;
             background: linear-gradient(135deg, var(--fg), var(--accent));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             display: flex; align-items: center; gap: 0.5rem;
-            transition: color 0.3s;
+            transition: color 0.3s; text-decoration: none;
         }
 
-        .logo:hover { color: var(--accent-hover); }
+        .logo img {
+            width: 40px; height: auto; border-radius: 4px;
+            object-fit: contain; transition: transform 0.3s;
+        }
+
+        .logo img:hover { transform: scale(1.1); }
+
+        .logo span { font-size: 1.2rem; font-weight: 600; }
 
         .nav-links { display: flex; gap: 2rem; list-style: none; }
 
-        .nav-links a {
-            color: var(--muted); text-decoration: none; font-weight: 500;
-            font-size: 0.875rem; padding: 0.5rem 1rem;
-            border-radius: 4px; transition: all 0.3s;
-            position: relative;
-        }
+        .nav-links a { color: var(--muted); text-decoration: none; font-weight: 500; font-size: 0.875rem; padding: 0.5rem 1rem; border-radius: 4px; transition: all 0.3s; position: relative; }
 
-        .nav-links a::after {
-            content: ''; position: absolute; bottom: 0; left: 50%;
-            width: 0; height: 2px;
-            background: var(--accent); transition: all 0.3s;
-            transform: translateX(-50%);
-        }
+        .nav-links a::after { content: ''; position: absolute; bottom: 0; left: 50%; width: 0; height: 2px; background: var(--accent); transition: all 0.3s; transform: translateX(-50%); }
 
         .nav-links a:hover { color: var(--fg); }
         .nav-links a:hover::after { width: 80%; }
 
-        .nav-links a.active {
-            color: var(--accent);
-        }
+        .nav-links a.active { color: var(--accent); }
         .nav-links a.active::after { width: 100%; }
 
-        /* ===== HERO SECTION ===== */
-        .hero {
-            min-height: 100vh; display: flex; align-items: center; justify-content: center;
-            padding: 8rem 2rem 2rem; position: relative; overflow: hidden;
-        }
+        /* ---- HERO SECTION ---- */
+        .hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; padding: 8rem 2rem 2rem; position: relative; overflow: hidden; }
 
         .hero::before {
-            content: ''; position: absolute; top: -50%; left: -50%;
-            width: 200%; height: 200%;
+            content: ''; position: absolute; top: -50%; left: -50%; width: 200%; height: 200%;
             background: radial-gradient(circle at 30% 20%, rgba(6, 214, 160, 0.03) 0%, transparent 50%),
                           radial-gradient(circle at 70% 80%, rgba(6, 214, 160, 0.02) 0%, transparent 50%);
-            animation: gradientRotate 20s linear infinite;
-            pointer-events: none;
+            animation: gradientRotate 20s linear infinite; pointer-events: none;
         }
 
         @keyframes gradientRotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
@@ -133,94 +86,58 @@
         .hero-container { max-width: 1200px; margin: 0 auto; text-align: center; padding: 2rem; position: relative; z-index: 1; }
 
         .profile-card {
-            background: var(--card); border: 1px solid var(--border);
-            border-radius: 50%; width: 220px; height: 220px;
-            display: flex; align-items: center; justify-content: center;
-            padding: 1.5rem; margin: 0 auto 2rem; position: relative;
+            background: var(--card); border: 1px solid var(--border); border-radius: 50%; width: 220px; height: 220px;
+            display: flex; align-items: center; justify-content: center; padding: 1.5rem; margin: 0 auto 2rem; position: relative;
             transition: transform 0.5s, box-shadow 0.5s;
         }
 
         .profile-card::before {
-            content: ''; position: absolute; top: 50%; left: 50%;
-            width: 180px; height: 180px; border: 2px solid var(--accent-dim);
-            border-radius: 50%; transform: translate(-50%, -50%);
-            opacity: 0; transition: opacity 0.5s;
+            content: ''; position: absolute; top: 50%; left: 50%; width: 180px; height: 180px; border: 2px solid var(--accent-dim); border-radius: 50%; transform: translate(-50%, -50%); opacity: 0; transition: opacity 0.5s;
         }
 
         .profile-card:hover::before { opacity: 1; }
 
         .profile-card:hover { transform: scale(1.05); box-shadow: 0 0 0 1px var(--accent), 0 20px 40px rgba(0,0,0,0.4); }
 
-        .profile-image {
-            width: 180px; height: 180px; border-radius: 50%;
-            object-fit: cover; border: 3px solid var(--bg);
-            transition: transform 0.5s;
-        }
+        .profile-image { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; border: 3px solid var(--bg); transition: transform 0.5s; }
 
         .profile-card:hover .profile-image { transform: rotate(5deg); }
 
-        .hero h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 1rem;
-            background: linear-gradient(135deg, var(--fg), var(--accent));
-            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
-            position: relative; display: inline-block; }
+        .hero h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 1rem; background: linear-gradient(135deg, var(--fg), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; position: relative; display: inline-block; }
 
-        .hero h1::after {
-            content: ''; position: absolute; bottom: -8px; left: 0; width: 100%; height: 4px;
-            background: var(--accent); border-radius: 2px; animation: barGrow 2s ease-out;
-        }
+        .hero h1::after { content: ''; position: absolute; bottom: -8px; left: 0; width: 100%; height: 4px; background: var(--accent); border-radius: 2px; animation: barGrow 2s ease-out; }
 
         @keyframes barGrow { 0% { width: 0; } 100% { width: 100%; } }
 
-        .hero h1 span {
-            background: var(--card); -webkit-background-clip: text; background-clip: text;
-            padding: 0 4px;
-        }
+        .hero h1 span { background: var(--card); -webkit-background-clip: text; background-clip: text; padding: 0 4px; }
 
         .hero p { color: var(--muted); font-size: 1.2rem; max-width: 600px; margin: 1.5rem auto 2rem; line-height: 1.6; }
 
-        .hero .tech-tags {
-            display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;
-        }
+        .hero .tech-tags { display: flex; gap: 0.75rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem; }
 
-        .tech-tag {
-            background: var(--surface); padding: 0.5rem 1rem; border-radius: 20px;
-            font-size: 0.8rem; color: var(--accent); font-weight: 500;
-            transition: all 0.3s; border: 1px solid var(--accent-dim);
-        }
+        .tech-tag { background: var(--surface); padding: 0.5rem 1rem; border-radius: 20px; font-size: 0.8rem; color: var(--accent); font-weight: 500; transition: all 0.3s; border: 1px solid var(--accent-dim); }
 
-        .tech-tag:hover {
-            background: var(--accent); color: var(--bg); transform: translateY(-2px);
-        }
+        .tech-tag:hover { background: var(--accent); color: var(--bg); transform: translateY(-2px); }
 
-        /* ===== SECTIONS ===== */
+        /* ---- SECTIONS ---- */
         .section { max-width: 1200px; margin: 6rem auto; padding: 0 2rem; }
 
-        .section h2 { font-size: 2.25rem; font-weight: 600; margin-bottom: 2rem;
-            padding-bottom: 0.75rem; border-bottom: 2px solid var(--border); color: var(--fg); position: relative; }
+        .section h2 { font-size: 2.25rem; font-weight: 600; margin-bottom: 2rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--border); color: var(--fg); position: relative; }
 
-        .section h2::after {
-            content: ''; position: absolute; bottom: -4px; left: 0; width: 60px; height: 3px;
-            background: var(--accent); border-radius: 2px; transition: width 0.5s;
-        }
+        .section h2::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 60px; height: 3px; background: var(--accent); border-radius: 2px; transition: width 0.5s; }
 
         .section.visible h2::after { width: 100px; }
 
         .section p { color: var(--muted); margin-bottom: 1.5rem; font-size: 1.05rem; }
 
-        /* ===== SKILLS GRID ===== */
+        /* ---- SKILLS GRID ---- */
         .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
 
         .skill-card {
-            background: var(--card); padding: 1.75rem; border-radius: 12px;
-            border: 1px solid var(--border); position: relative; overflow: hidden;
-            transition: transform 0.4s, box-shadow 0.4s;
+            background: var(--card); padding: 1.75rem; border-radius: 12px; border: 1px solid var(--border); position: relative; overflow: hidden; transition: transform 0.4s, box-shadow 0.4s;
         }
 
-        .skill-card::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
-            background: linear-gradient(90deg, var(--accent), transparent); opacity: 0;
-            transition: opacity 0.3s;
-        }
+        .skill-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, var(--accent), transparent); opacity: 0; transition: opacity 0.3s; }
 
         .skill-card:hover { transform: translateY(-8px); box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px var(--accent); }
 
@@ -230,7 +147,6 @@
 
         .skill-card p { font-size: 0.875rem; color: var(--muted); }
 
-        /* Staggered entrance */
         .skill-card:nth-child(1) { animation: cardEnter 0.6s ease-out forwards; animation-delay: 0.1s; }
         .skill-card:nth-child(2) { animation: cardEnter 0.6s ease-out forwards; animation-delay: 0.2s; }
         .skill-card:nth-child(3) { animation: cardEnter 0.6s ease-out forwards; animation-delay: 0.3s; }
@@ -238,24 +154,16 @@
         .skill-card:nth-child(5) { animation: cardEnter 0.6s ease-out forwards; animation-delay: 0.5s; }
         .skill-card:nth-child(6) { animation: cardEnter 0.6s ease-out forwards; animation-delay: 0.6s; }
 
-        @keyframes cardEnter {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        @keyframes cardEnter { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* ===== PROJECTS GRID ===== */
+        /* ---- PROJECTS GRID ---- */
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 2rem; }
 
         .project-card {
-            background: var(--card); border: 1px solid var(--border); border-radius: 16px;
-            padding: 2rem; position: relative; overflow: hidden; transition: transform 0.4s, box-shadow 0.4s;
+            background: var(--card); border: 1px solid var(--border); border-radius: 16px; padding: 2rem; position: relative; overflow: hidden; transition: transform 0.4s, box-shadow 0.4s;
         }
 
-        .project-card::before {
-            content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-hover)); opacity: 0;
-            transition: opacity 0.3s;
-        }
+        .project-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 3px; background: linear-gradient(90deg, var(--accent), var(--accent-hover)); opacity: 0; transition: opacity 0.3s; }
 
         .project-card:hover { transform: translateY(-6px); box-shadow: 0 25px 50px rgba(0,0,0,0.4), 0 0 0 1px var(--accent); }
 
@@ -268,10 +176,7 @@
         .project-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
 
         .link-btn {
-            display: inline-flex; align-items: gap: 0.5rem; padding: 0.5rem 1rem;
-            background: var(--surface); color: var(--fg); text-decoration: none;
-            border-radius: 6px; font-size: 0.825rem; font-weight: 500;
-            transition: all 0.3s; border: 1px solid var(--border);
+            display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1rem; background: var(--surface); color: var(--fg); text-decoration: none; border-radius: 6px; font-size: 0.825rem; font-weight: 500; transition: all 0.3s; border: 1px solid var(--border);
         }
 
         .link-btn:hover { background: var(--accent); color: var(--bg); border-color: var(--accent); }
@@ -284,68 +189,48 @@
 
         .project-tags { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 1rem; }
 
-        .project-tag { background: var(--surface); padding: 0.25rem 0.75rem; border-radius: 10px;
-            font-size: 0.7rem; color: var(--muted); font-weight: 500; }
+        .project-tag { background: var(--surface); padding: 0.25rem 0.75rem; border-radius: 10x; font-size: 0.7rem; color: var(--muted); font-weight: 500; }
 
         .project-tag.accent { background: var(--accent-dim); color: var(--accent); }
 
-        /* Project entr animations */
         .project-card:nth-child(1) { animation: projectEnter 0.7s ease-out forwards; animation-delay: 0.1s; }
         .project-card:nth-child(2) { animation: projectEnter 0.7s ease-out forwards; animation-delay: 0.2s; }
         .project-card:nth-child(3) { animation: projectEnter 0.7s ease-out forwards; animation-delay: 0.3s; }
         .project-card:nth-child(4) { animation: projectEnter 0.7s ease-out forwards; animation-delay: 0.4s; }
         .project-card:nth-child(5) { animation: projectEnter 0.7s ease-out forwards; animation-delay: 0.5s; }
 
-        @keyframes projectEnter {
-            from { opacity: 0; transform: translateY(40px) scale(0.95); }
-            to { opacity: 1; transform: translateY(0) scale(1); }
-        }
+        @keyframes projectEnter { from { opacity: 0; transform: translateY(40px) scale(0.95); } to { opacity: 1; transform: translateY(0) scale(1); } }
 
-        /* ===== FOOTER ===== */
+        /* ---- FOOTER ---- */
         footer { text-align: center; padding: 3rem 2rem; color: var(--muted); font-size: 0.85rem; border-top: 1px solid var(--border); margin-top: 6rem; }
 
-        /* ===== CTA BANNER ===== */
-        .cta-banner {
-            background: var(--surface); border: 1px solid var(--border); border-radius: 12px;
-            padding: 2rem; margin: 3rem auto; max-width: 800px; text-align: center;
-        }
+        /* ---- CTA BANNER ---- */
+        .cta-banner { background: var(--surface); border: 1px solid var(--border); border-radius: 12x; padding: 2rem; margin: 3rem auto; max-width: 800px; text-align: center; }
 
         .cta-banner h3 { font-size: 1.25rem; margin-bottom: 0.75rem; }
 
         .cta-banner p { color: var(--muted); }
 
-        /* ===== PROJECT MODAL ===== */
-        .project-modal { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0;
-            background: rgba(0,0,0,0.8); z-index: 1000; align-items: center; justify-content: center; }
+        /* ---- PROJECT MODAL ---- */
+        .project-modal { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0,0,0,0.8); z-index: 1000; align-items: center; justify-content: center; }
 
         .project-modal.active { display: flex; }
 
         .project-modal-content {
-            background: var(--card); padding: 2rem; border-radius: 20px;
-            width: 90%; max-width: 800px; max-height: 90vh; overflow-y: auto;
-            border: 1px solid var(--border); position: relative;
-            animation: modalEnter 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            background: var(--card); padding: 2rem; border-radius: 20x; width: 90%; max-width: 800px; max-height: 90vh; overflow-y: auto; border: 1px solid var(--border); position: relative; animation: modalEnter 0.4s cubic-bezier(0.16, 1, 0.3, 1);
         }
 
         @keyframes modalEnter { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
 
         .project-modal-close {
-            position: absolute; top: 1.5rem; right: 2rem; width: 30px; height: 30px;
-            background: var(--surface); border: 1px solid var(--border); border-radius: 50%;
-            display: flex; align-items: center; justify-content: cursor: pointer;
-            transition: all 0.3s;
+            position: absolute; top: 1.5rem; right: 2rem; width: 30px; height: 30px; background: var(--surface); border: 1px solid var(--border); border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s;
         }
 
         .project-modal-close:hover { background: #ff5f57; border-color: #ff5f57; }
 
         .project-modal-close:hover phosphor-x { color: white; }
 
-        .project-img {
-            width: 100%; border-radius: 12px; margin: 1.5rem 0;
-            background: var(--photo-placeholder); aspect-ratio: 16/9;
-            display: flex; align-items: center; justify-content: center; color: var(--muted);
-            font-size: 0.9rem;
-        }
+        .project-img { width: 100%; border-radius: 12px; margin: 1.5rem 0; background: var(--photo-placeholder); aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; color: var(--muted); font-size: 0.9rem; }
 
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.5rem; }
@@ -359,13 +244,17 @@
 </head>
 <body>
 
-    <!-- Navigation -->
+    <!-- Navigation WITH YOUR LOGO -->
     <nav>
         <div class="nav-container">
-            <div class="logo">
-                <phosphor-icon name="briefcase" size="24"></phosphor-icon>
-                Hatem Ben Salha
-            </div>
+            <!-- YOUR LOGO INTEGRATED HERE -->
+            <a href="#!" class="logo">
+                <img src="https://raw.githubusercontent.com/Hatem-BS4/Hatem-BS4.github.io/main/logo.png" 
+                     alt="Hatem Ben Salha Logo" 
+                     style="width: 40px; height: auto;">
+                <span>Hatem Ben Salha</span>
+            </a>
+            
             <ul class="nav-links">
                 <li><a href="#about" class="active">About</a></li>
                 <li><a href="#skills">Skills</a></li>
@@ -378,10 +267,7 @@
     <section class="hero">
         <div class="hero-container">
             <div class="profile-card">
-                <!-- PROFILE PHOTO: Replace this URL with your own photo -->
-                <img src="https://avatars.githubusercontent.com/u/76263028?s=400" 
-                     class="profile-image" 
-                     alt="Hatem Ben Salha - Mechatronics Engineer">
+                <img src="https://avatars.githubusercontent.com/u/76263028?s=400" class="profile-image" alt="Hatem Ben Salha">
             </div>
             <h1>Hatem Ben Salha<span>.</span></h1>
             <div class="tech-tags">
@@ -516,7 +402,7 @@
         </div>
     </section>
 
-    <!-- Project Modal (for detailed views) -->
+    <!-- Project Modal -->
     <div class="project-modal" id="projectModal">
         <div class="project-modal-content">
             <button class="project-modal-close" aria-label="Close modal" onclick="closeProjectModal()">
@@ -528,125 +414,23 @@
     </div>
 
     <script>
-        // Check for reduced motion preference
         const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
         
-        // Initialize all animations respecting reduced motion
         if (!prefersReducedMotion) {
             const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) entry.target.classList.add('visible');
-                });
-            }, observerOptions);
+            const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); }); }, observerOptions);
             document.querySelectorAll('.section, .skill-card, .project-card').forEach(el => observer.observe(el));
         }
 
-        // DOM Content Loaded
         document.addEventListener('DOMContentLoaded', () => {
             const elements = document.querySelectorAll('.hero h1, .hero p, .hero .tech-tags');
-            elements.forEach((el, index) => {
-                el.style.opacity = '0'; el.style.transform = 'translateY(20px)';
-                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                setTimeout(() => { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; }, 200 * index);
-            });
+            elements.forEach((el, index) => { el.style.opacity = '0'; el.style.transform = 'translateY(20px)'; el.style.transition = 'opacity 0.6s ease, transform 0.6s ease'; setTimeout(() => { el.style.opacity = '1'; el.style.transform = 'translateY(0)'; }, 200 * index); });
         });
 
-        // Project card click to open modal
         document.querySelectorAll('.project-card').forEach(card => {
-            card.addEventListener('click', (e) => {
-                if (e.target.closest('.link-btn')) return; // Don't open if clicking links
-                
-                const modal = document.getElementById('projectModal');
-                const modalBody = document.getElementById('modalBody');
-                const modalImg = document.getElementById('modalImg');
-                
-                const projectData = {
-                    'eurobot': {
-                        title: 'Eurobot 2026 PCB Design',
-                        image: 'https://images.unsplash.com/photo-1581091012184-7e0c9a8a1277?w=800&h=450&fit=crop',
-                        desc: 'Custom PCB designs for competition robot including motor drivers, sensor interfaces, and ESP32 communication modules for autonomous navigation and motor control. 4-layer board with surface-mount components.',
-                        tech: ['KiCad', 'Embedded C', 'Motor Control', 'ESP32', '4-layer PCB'],
-                        github: 'https://github.com/Hatem-BS4/EUROBOT-2026-PCBs',
-                        linkedin: 'https://linkedin.com/in/hatem-ben-salha'
-                    },
-                    'firmware': {
-                        title: 'Embedded Firmware Suite',
-                        image: 'https://images.unsplash.com/photo-1581092528831-8e9023e0e3f5?w=800&h=450&fit=crop',
-                        desc: 'STM32-based firmware for motor control, sensor integration, and FreeRTOS task scheduling for autonomous robot navigation. Includes PID control, sensor fusion, and communication protocols. 200+ hours of continuous operation testing.',
-                        tech: ['STM32', 'FreeRTOS', 'PID Control', 'Sensor Fusion', 'UART'],
-                        github: 'https://github.com/Hatem-BS4/embedded-firmware',
-                        linkedin: 'https://linkedin.com/in/hatem-ben-salha'
-                    },
-                    'tutorials': {
-                        title: 'PCB Design Tutorial Series',
-                        image: 'https://images.unsplash.com/photo-1518717758536-49f07cba6e56?w=800&h=450&fit=crop',
-                        desc: 'Video tutorial series on PCB design using KiCad with over 500 views, bridging the gap between engineering and visual communication. Includes 5-part series covering schematic capture to board fabrication with Gerber generation.',
-                        tech: ['KiCad', 'Video', 'Tutorials', 'Education'],
-                        github: 'https://www.linkedin.com/in/hatem-ben-salha',
-                        linkedin: 'https://linkedin.com/in/hatem-ben-salha'
-                    },
-                    'capstone': {
-                        title: 'Mechatronics Capstone Project',
-                        image: 'https://images.unsplash.com/photo-1581092580484-86a6e88c256d?w=800&h=450&fit=crop',
-                        desc: 'Autonomous robot with custom PCB for navigation and motor control. Designed schematic in KiCad, manufactured board through JLCPCB, wrote FreeRTOS-based firmware for motor control and obstacle avoidance. Presented to faculty panel.',
-                        tech: ['KiCad', 'FreeRTOS', 'Mechanical Design', 'Presentation'],
-                        github: 'https://github.com/Hatem-BS4/capstone-project',
-                        linkedin: 'https://linkedin.com/in/hatem-ben-salha'
-                    },
-                    'rc-car': {
-                        title: 'RC Car Firmware & Control',
-                        image: 'https://images.unsplash.com/photo-1593646635435-e6e140f5b40e?w=800&h=450&fit=crop',
-                        desc: 'Firmware for RC car with wireless control, sensor integration, and real-time telemetry. Developed using embedded C on STM32 with UART communication and PWM motor control. Includes mobile app interface for real-time monitoring.',
-                        tech: ['STM32', 'UART', 'PWM', 'Telemetry', 'Mobile App'],
-                        github: 'https://github.com/Hatem-BS4/rc-car-firmware',
-                        linkedin: 'https://linkedin.com/in/hatem-ben-salha'
-                    }
-                };
-                
-                const data = projectData[dataset.project] || projectData['eurobot'];
-                
-                modalImg.src = data.image;
-                modalImg.alt = data.title;
-                modalBody.innerHTML = `
-                    <h3 style="font-size:1.5rem; margin-bottom:1rem; color:var(--fg);">${data.title}</h3>
-                    <p style="color:var(--muted); margin-bottom:1.5rem; line-height:1.5;">${data.desc}</p>
-                    <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:1rem;">
-                        ${data.github ? `<a href="${data.github}" class="link-btn" target="_blank" rel="noopener"><phosphor-icon name="github" size="14"></phosphor-icon> GitHub</a>` : ''}
-                        ${data.linkedin ? `<a href="${data.linkedin}" class="link-btn" target="_blank" rel="noopener"><phosphor-icon name="linkedin" size="14"></phosphor-icon> LinkedIn</a>` : ''}
-                    </div>
-                    <p style="color:var(--muted); font-size:0.85rem; margin-top:1.5rem;"><strong>Tech Stack:</strong> ${data.tech.join(', ')}</p>
-                `;
-                
-                modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            });
-        });
+            card.addEventListener('click', (e) => { if (e.target.closest('.link-btn')) return; const modal = document.getElementById('projectModal'); const modalBody = document.getElementById('modalBody'); const modalImg = document.getElementById('modalImg'); const projectData = { eurobot: { title: 'Eurobot 2026 PCB Design', image: 'https://images.unsplash.com/photo-1581091012184-7e0c9a8a1277?w=800&h=450&fit=crop', desc: 'Custom PCB designs for competition robot including motor drivers, sensor interfaces, and ESP32 communication modules for autonomous navigation and motor control. 4-layer board with surface-mount components.', tech: ['KiCad', 'Embedded C', 'Motor Control', 'ESP32', '4-layer PCB'], github: 'https://github.com/Hatem-BS4/EUROBOT-2026-PCBs', linkedin: 'https://linkedin.com/in/hatem-ben-salha' }, firmware: { title: 'Embedded Firmware Suite', image: 'https://images.unsplash.com/photo-1581092528831-8e9023e0e3f5?w=800&h=450&fit=crop', desc: 'STM32-based firmware for motor control, sensor integration, and FreeRTOS task scheduling for autonomous robot navigation. Includes PID control, sensor fusion, and communication protocols. 200+ hours of continuous operation testing.', tech: ['STM32', 'FreeRTOS', 'PID Control', 'Sensor Fusion', 'UART'], github: 'https://github.com/Hatem-BS4/embedded-firmware', linkedin: 'https://linkedin.com/in/hatem-ben-salha' }, tutorials: { title: 'PCB Design Tutorial Series', image: 'https://images.unsplash.com/photo-1518717758536-49f07cba6e56?w=800&h=450&fit=crop', desc: 'Video tutorial series on PCB design using KiCad with over 500 views, bridging the gap between engineering and visual communication. Includes 5-part series covering schematic capture to board fabrication with Gerber generation.', tech: ['KiCad', 'Video', 'Tutorials', 'Education'], github: 'https://www.linkedin.com/in/hatem-ben-salha', linkedin: 'https://linkedin.com/in/hatem-ben-salha' }, capstone: { title: 'Mechatronics Capstone Project', image: 'https://images.unsplash.com/photo-1581092580484-86a6e88c256d?w=800&h=450&fit=crop', desc: 'Autonomous robot with custom PCB for navigation and motor control. Designed schematic in KiCad, manufactured board through JLCPCB, wrote FreeRTOS-based firmware for motor control and obstacle avoidance. Presented to faculty panel.', tech: ['KiCad', 'FreeRTOS', 'Mechanical Design', 'Presentation'], github: 'https://github.com/Hatem-BS4/capstone-project', linkedin: 'https://linkedin.com/in/hatem-ben-salha' }, rc-car: { title: 'RC Car Firmware & Control', image: 'https://images.unsplash.com/photo-1593646635435-e6e140f5b40e?w=800&h=450&fit=crop', desc: 'Firmware for RC car with wireless control, sensor integration, and real-time telemetry. Developed using embedded C on STM32 with UART communication and PWM motor control. Includes mobile app interface for real-time monitoring.', tech: ['STM32', 'UART', 'PWM', 'Telemetry', 'Mobile App'], github: 'https://github.com/Hatem-BS4/rc-car-firmware', linkedin: 'https://linkedin.com/in/hatem-ben-salha' } }; const data = projectData[dataset.project] || projectData['eurobot']; modalImg.src = data.image; modalImg.alt = data.title; modalBody.innerHTML = `<h3 style="font-size:1.5rem; margin-bottom:1rem; color:var(--fg);">${data.title}</h3><p style="color:var(--muted); margin-bottom:1.5rem; line-height:1.5;">${data.desc}</p><div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:1rem;">${data.github ? `<a href="${data.github}" class="link-btn" target="_blank" rel="noopener"><phosphor-icon name="github" size="14"></phosphor-icon> GitHub</a>` : ''}${data.linkedin ? `<a href="${data.linkedin}" class="link-btn" target="_blank" rel="noopener"><phosphor-icon name="linkedin" size="14"></phosphor-icon> LinkedIn</a>` : ''}</p><p style="color:var(--muted); font-size:0.85rem; margin-top:1.5rem;"><strong>Tech Stack:</strong> ${data.tech.join(', ')}</p>`; modal.classList.add('active'); document.body.style.overflow = 'hidden'; }); });
 
-        // Close modal
-        function closeProjectModal() {
-            const modal = document.getElementById('projectModal');
-            modal.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        // Close on outside click
-        document.getElementById('projectModal').addEventListener('click', (e) => {
-            if (e.target === document.getElementById('projectModal')) closeProjectModal();
-        });
-
-        // Escape key to close
-        document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeProjectModal(); });
-
-        // Nav active state
-        const navLinks = document.querySelectorAll('.nav-links a'); const sections = document.querySelectorAll('section[id]');
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => { const id = entry.target.getAttribute('id'); const navLink = document.querySelector(`.nav-links a[href="#${id}"]`); if (navLink) { if (entry.isIntersecting) { navLinks.forEach(l => l.classList.remove('active')); navLink.classList.add('active'); } } });
-        }, { threshold: 0.3 });
-        sections.forEach(s => observer.observe(s));
-
-        // Mobile menu button
-        const createMenuButton = () => { if (window.innerWidth < 768) { const nav = document.querySelector('nav'); const menuBtn = document.createElement('button'); menuBtn.className = 'menu-btn'; menuBtn.setAttribute('aria-label', 'Open navigation menu'); menuBtn.innerHTML = '<phosphor-icon name="menu" size="24"></phosphor-icon>'; nav.querySelector('.nav-container').appendChild(menuBtn); menuBtn.addEventListener('click', () => { const links = document.querySelector('.nav-links'); links.classList.toggle('active'); }); } }; window.addEventListener('resize', createMenuButton); createMenuButton();
+        function closeProjectModal() { const modal = document.getElementById('projectModal'); modal.classList.remove('active'); document.body.style.overflow = ''; } document.getElementById('projectModal').addEventListener('click', (e) => { if (e.target === document.getElementById('projectModal')) closeProjectModal(); }); document.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeProjectModal(); }); const navLinks = document.querySelectorAll('.nav-links a'); const sections = document.querySelectorAll('section[id]'); const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { const id = entry.target.getAttribute('id'); const navLink = document.querySelector(`.nav-links a[href="#${id}"]`); if (navLink) { if (entry.isIntersecting) { navLinks.forEach(l => l.classList.remove('active')); navLink.classList.add('active'); } } }); }, { threshold: 0.3 }); sections.forEach(s => observer.observe(s)); const createMenuButton = () => { if (window.innerWidth < 768) { const nav = document.querySelector('nav'); const menuBtn = document.createElement('button'); menuBtn.className = 'menu-btn'; menuBtn.setAttribute('aria-label', 'Open navigation menu'); menuBtn.innerHTML = '<phosphor-icon name="menu" size="24"></phosphor-icon>'; nav.querySelector('.nav-container').appendChild(menuBtn); menuBtn.addEventListener('click', () => { const links = document.querySelector('.nav-links'); links.classList.toggle('active'); }); }; window.addEventListener('resize', createMenuButton); createMenuButton(); });
     </script>
 </body>
 </html>
